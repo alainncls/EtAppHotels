@@ -20,7 +20,7 @@ angular
       })
       .when('/hotel/:id', {
         templateUrl: 'views/hotel.html',
-        controller: 'MainCtrl'
+        controller: 'HotelCtrl'
       })
       .otherwise({
         redirectTo: '/'
