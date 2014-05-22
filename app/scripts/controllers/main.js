@@ -9,9 +9,9 @@ angular.module('projetAngularJsApp')
 		];
 		$scope.map = {
 			center: {
-				latitude: 45,
-				longitude: -73
+				latitude: 43.45,
+				longitude: 4.43
 			},
-			zoom: 8
+			zoom: 2
 		};
 	});
