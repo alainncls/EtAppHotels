@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('projetAngularJsApp')
-	.controller('MainCtrl', function ($scope, $http) {
+	.controller('MainCtrl', function ($scope, $http, $location) {
 		var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/search?';
 		urlJSON += 'dataset=hotels-classes-en-france';
 
@@ -15,9 +15,18 @@ angular.module('projetAngularJsApp')
 
 		$scope.hotels = [];
 
-		$http.get(urlJSON+'&rows=100&start=0').success( function (data2) {
+		$http.get(urlJSON+'&rows=2&start=0').success( function (data2) {
 			$scope.hotels = data2.records;
+			$scope.hotels.forEach( encode, $scope.hotels);
 		});
+
+		function encode(element,index){
+			this[index].recordid = encodeURIComponent(element.recordid);
+		}
+
+		function goTo(id) {
+			$location.path('#/hotel/'+id);
+		}
 
 		/*$http.get(urlJSON+'&rows=0').success( function (data) {
 			var step = 100;
