@@ -50,18 +50,6 @@ h1{
     background-color: $main-color!important;
     border-color: $dark-color!important;
 }
-.panel-heading{
-     background-color: $dark-color!important
-}
-
-.panel-primary,
-.panel-footer{
-    border-color: $dark-color!important;
-}
-
-.panel-footer{
-    background-color: $main-color!important;
-}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -70,7 +58,6 @@ h1{
     padding-right: 15px;
 }
 
-/* Custom page footer */
 .footer {
     padding-top: 19px;
     color: #777;
@@ -82,4 +69,20 @@ h1{
     border-bottom: 1px solid #e5e5e5;
     border-radius: 20px!important;
     padding: 10px;
+    margin-bottom: 10px;
+}
+
+.header-bottom {
+    margin-bottom: 10px;
+    background-color: $light-color;
+}
+.nav,
+.nav-pills {
+    background-color: $main-color!important;
+    border-radius: 20px!important;
+    color: $dark-color!important;
+    .hover {
+        background-color: $dark-color!important;
+        color: $darker-color!important;
+    }
 }
