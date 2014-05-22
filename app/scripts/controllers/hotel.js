@@ -8,7 +8,7 @@ angular.module('projetAngularJsApp')
 
 	$scope.hotel = [];
 
-	$http.get(urlJSON+$routeParams.id).success( function (data) {
+	$http.get(urlJSON+'hotels_classescsvzip%2F'+$routeParams.id).success( function (data) {
 		$scope.hotel=data.records[0];
 	});
 });
