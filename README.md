@@ -1,3 +1,3 @@
-A installer pour exécuter :</br>
-  bower install underscore</br>
+A installer pour exécuter :
+  bower install underscore
   bower install angular-google-maps
