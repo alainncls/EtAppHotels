@@ -78,11 +78,15 @@ h1{
     border-radius: 4px;
 }
 
+.boutton-left {
+    margin-right: 10px;
+}
+
 .boutton {
     border-radius: 4px;
-    margin-right: 10px;
     border: 1px solid $dark-color;
-    :hover{
+
+    :hover {
         background-color: $light-color!important;
     }
     a {

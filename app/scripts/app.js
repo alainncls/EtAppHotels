@@ -18,12 +18,20 @@ angular
         templateUrl: 'views/about.html',
         controller: 'MainCtrl'
       })
+      .when('/cgv', {
+        templateUrl: 'views/cgv.html',
+        controller: 'MainCtrl'
+      })
       .when('/hotel/:id', {
         templateUrl: 'views/hotel.html',
         controller: 'HotelCtrl'
       })
       .when('/hotelFind', {
         templateUrl: 'views/hotelFind.html',
+        controller: 'MainCtrl'
+      })
+      .when('/findNear', {
+        templateUrl: 'views/findNear.html',
         controller: 'MainCtrl'
       })
       .otherwise({
