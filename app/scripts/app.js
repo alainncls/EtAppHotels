@@ -20,6 +20,10 @@ angular
       })
       .when('/hotel/:id', {
         templateUrl: 'views/hotel.html',
+        controller: 'HotelCtrl'
+      })
+      .when('/hotelFind', {
+        templateUrl: 'views/hotelFind.html',
         controller: 'MainCtrl'
       })
       .otherwise({

@@ -1,0 +1,38 @@
+[
+  {
+    "datasetid": "hotels-classes-en-france",
+    "recordid": "hotels_classescsvzip/3",
+    "fields": {
+      "commune": "SAINTES-MARIES-DE-LA-MER",
+      "classement": "3 étoiles",
+      "categorie": "-0",
+      "nombre_de_logements": 0,
+      "adresse": "quartier dromar, route départementale 570",
+      "date_de_publication_de_l_etablissement": "2012-07-08",
+      "coord": [
+        43.450380171,
+        4.428719968
+      ],
+      "nom_commercial": "LE MAS DE LA GRENOUILLÈRE",
+      "courriel": "contacts@hotel-la-grenouillere.fr",
+      "mention": "-0",
+      "capacite_d_accueil_personnes": 36,
+      "date_de_classement": "2012-07-08",
+      "nombre_d_emplacements": 0,
+      "nombre_de_chambres": 17,
+      "telephone": "490979022",
+      "nombre_d_unites_d_habitation": 0,
+      "type_de_sejour": "-0",
+      "typologie_etablissement": "HÔTEL",
+      "site_internet": "http://www.hotel-la-grenouillere.fr",
+      "code_postal": "13460"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        4.428719968,
+        43.450380171
+      ]
+    }
+  }
+]
