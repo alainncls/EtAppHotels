@@ -1,5 +1,9 @@
 <ng-include src="'views/header.html'"></ng-include>
 
-<google-map center="map.center" zoom="map.zoom"><marker coords={"latitude":43.45,"longitude":4.43}></marker></google-map>
-
+<google-map center="map.center" zoom="map.zoom">
+	<!-- <marker ng-repeat="hotel in hotels" coords="{'latitude':{{hotel.coord[0]}},'longitude':{{hotel.coord[1]}} }"></marker> -->
+</google-map>
+<div ng-repeat="hotel in hotels">
+	{{hotel.coord[0]}}
+</div>
 <ng-include src="'views/footer.html'"></ng-include>
