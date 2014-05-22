@@ -4,5 +4,12 @@
 	<strong>{{hotel.fields.nom_commercial}}</strong><br>
 	{{hotel.fields.adresse}}<br>
 	{{hotel.fields.commune}}, {{hotel.fields.code_postal}}<br>
-	<i class="fa fa-phone" data-toggle="tooltip" data-placement="left" title="Téléphone"></i> {{hotel.fields.telephone}}
+	<i class="fa fa-phone" data-toggle="tooltip" data-placement="top" title="Téléphone"></i> {{hotel.fields.telephone}}
 </address>
+
+<script type="text/javascript">
+    /*Active les tooltips de bootstrap*/
+    $(function () { 
+        $("[data-toggle='tooltip']").tooltip(); 
+    });
+</script>
