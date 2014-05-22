@@ -15,13 +15,17 @@ angular.module('projetAngularJsApp')
 
 		$scope.hotels = [];
 
-		$http.get(urlJSON+'&rows=0').success( function (data) {
+		$http.get(urlJSON+'&rows=100&start=0').success( function (data2) {
+			$scope.hotels = data2.records;
+		});
+
+		/*$http.get(urlJSON+'&rows=0').success( function (data) {
 			var step = 100;
 			for (var i=0; i < data.nhits; i = i+step) {
 				$http.get(urlJSON+'&rows='+step+'&start='+i).success( function (data2) {
 					$scope.hotels.push(data2.records);
 				});
 			}
-		});
+		});*/
 
 	});
