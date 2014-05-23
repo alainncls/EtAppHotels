@@ -1,0 +1,23 @@
+<ng-include src="'views/header.html'"></ng-include>
+
+<section id="form">
+    <form>
+      <div class="input-group form-search">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+        <input class="form-control"  ng-model="search" placeholder="Filter">
+      </div>
+      <!-- <input class="btn btn-primary" type="submit"> -->
+    </form>
+</section>
+
+<section id="hotel">
+  <div class="row">
+    <div class="col-md-4 col-sm-6" ng-repeat="hotel in hotels | filter:{fields.nom_commercial:search}">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{hotel.fields.nom_commercial}}</div>
+      </div>      
+    </div>
+  </div>
+</section>
+
+<ng-include src="'views/footer.html'"></ng-include>
