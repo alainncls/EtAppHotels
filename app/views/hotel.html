@@ -1,11 +1,31 @@
 <!-- http://public.opendatasoft.com/api/records/1.0/search?dataset=hotels-classes-en-france&q=recordid:hotels_classescsvzip/3 -->
+<ng-include src="'views/header.html'"></ng-include>
 
+<br/>
 <address>
-	<strong>{{hotel.fields.nom_commercial}}</strong><br>
-	{{hotel.fields.adresse}}<br>
-	{{hotel.fields.commune}}, {{hotel.fields.code_postal}}<br>
-	<i class="fa fa-phone" data-toggle="tooltip" data-placement="top" title="Téléphone"></i> {{hotel.fields.telephone}}
+	<i class="fa fa-home" data-toggle="tooltip" data-placement="top" title="Hôtel">&nbsp;</i><strong>{{hotel.fields.nom_commercial}}</strong>
+	<i class="fa fa-star" ng-repeat="star in hotel.fields.classement" data-toggle="tooltip" data-placement="top" title="Etoile"></i>
+	<br/>
+	<i class="fa fa-road" data-toggle="tooltip" data-placement="top" title="Adresse">&nbsp;</i>{{hotel.fields.adresse}}	{{hotel.fields.code_postal}} {{hotel.fields.commune}}<br/>
 </address>
+
+<div>
+	<i class="fa fa-globe" data-toggle="tooltip" data-placement="top" title="Site internet">&nbsp;</i> <a href="{{hotel.fields.site_internet}}" target="_top">{{hotel.fields.site_internet}}</a><br/>
+	<i class="fa fa-envelope" data-toggle="tooltip" data-placement="top" title="Email">&nbsp;</i> <a href="mailto:{{hotel.fields.courriel}}?Subject=Réservation" target="_top">{{hotel.fields.courriel}}</a><br/>
+	<i class="fa fa-phone" data-toggle="tooltip" data-placement="top" title="Téléphone">&nbsp;</i> (+33) {{hotel.fields.telephone}}<br/><br/>
+</div>
+
+<div>
+	<i class="fa fa-users" data-toggle="tooltip" data-placement="top" title="Capacité d'accueil">&nbsp;</i> Capacité d'accueil : {{hotel.fields.capacite_d_accueil_personnes}}<br/>
+	<i class="fa fa-key" data-toggle="tooltip" data-placement="top" title="Nombre de chambres">&nbsp;</i> Nombre de chambres : {{hotel.fields.nombre_de_chambres}}
+</div>
+
+{{hotel.geometry.coordinates}}
+
+<google-map zoom="map.zoom" center="map.center" options="map.options" draggable="true">
+	<marker coords={{hotel.geometry.coordinates}}></marker>
+	<!-- <marker coords="[2,5]"></marker> -->
+</google-map>
 
 <script type="text/javascript">
     /*Active les tooltips de bootstrap*/

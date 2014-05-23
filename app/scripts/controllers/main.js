@@ -13,7 +13,6 @@ angular.module('projetAngularJsApp')
 			zoom: 2,
 			options: {
 				disableDoubleClickZoom:true,
-	        	
 	        	draggableCursor:"move",
 	        	draggingCursor:"auto",
 	        	keyboardShortcuts:false,
@@ -35,19 +34,4 @@ angular.module('projetAngularJsApp')
 		$scope.goTo = function (id) {
 			$location.path('/hotel/' + id);
 		};
-
-		/*function goTo(id) {
-			alert("goTo !");
-			$location.path('#/hotel/' + id);
-		};*/
-
-		/*$http.get(urlJSON+'&rows=0').success( function (data) {
-			var step = 100;
-			for (var i=0; i < data.nhits; i = i+step) {
-				$http.get(urlJSON+'&rows='+step+'&start='+i).success( function (data2) {
-					$scope.hotels.push(data2.records);
-				});
-			}
-		});*/
-
 	});
