@@ -10,23 +10,36 @@ angular.module('projetAngularJsApp')
 				latitude: 43.45,
 				longitude: 4.43
 			},
-			zoom: 2
+			zoom: 2,
+			options: {
+				disableDoubleClickZoom:true,
+	        	
+	        	draggableCursor:"move",
+	        	draggingCursor:"auto",
+	        	keyboardShortcuts:false,
+	        	streetViewControl:false
+			}
 		};
 
 		$scope.hotels = [];
 
-		$http.get(urlJSON+'&rows=2&start=0').success( function (data2) {
+		$http.get(urlJSON + '&rows=2&start=0').success( function (data2) {
 			$scope.hotels = data2.records;
 			$scope.hotels.forEach( encode, $scope.hotels);
 		});
 
 		function encode(element,index){
 			this[index].recordid = element.recordid.substring(21);
-		}
+		};
 
-		function goTo(id) {
-			$location.path('#/hotel/'+id);
-		}
+		$scope.goTo = function (id) {
+			$location.path('/hotel/' + id);
+		};
+
+		/*function goTo(id) {
+			alert("goTo !");
+			$location.path('#/hotel/' + id);
+		};*/
 
 		/*$http.get(urlJSON+'&rows=0').success( function (data) {
 			var step = 100;

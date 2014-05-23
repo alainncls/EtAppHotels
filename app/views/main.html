@@ -1,15 +1,16 @@
 <ng-include src="'views/header.html'"></ng-include>
 
-<ng-include src="'views/carousel.html'"></ng-include>
+<!-- <ng-include src="'views/carousel.html'"></ng-include> -->
+<!-- click="goTo(hotel.recordid)" -->
 
 <br/>
 <br/>
 
-<google-map center="map.center" zoom="map.zoom">
+<google-map zoom="map.zoom" center="map.center" options="map.options" draggable="true">
 	<marker 
 		ng-repeat="hotel in hotels"
 		coords="hotel.geometry.coordinates"
-		click="'goTo(hotel.recordid)'"
+		click="goTo(hotel.recordid)"
 	>
 	</marker>
 </google-map>
