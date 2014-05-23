@@ -7,8 +7,8 @@ angular.module('projetAngularJsApp')
 
 		$scope.map = {
 			center: {
-				latitude: 43.45,
-				longitude: 4.43
+				latitude: 20,
+				longitude: 0
 			},
 			zoom: 2,
 			options: {
@@ -22,13 +22,15 @@ angular.module('projetAngularJsApp')
 
 		$scope.hotels = [];
 
-		$http.get(urlJSON + '&rows=100&start=0').success( function (data2) {
+		$http.get(urlJSON + '&rows=500&start=0').success( function (data2) {
 			$scope.hotels = data2.records;
-			$scope.hotels.forEach( encode, $scope.hotels);
+			$scope.hotels.forEach( format, $scope.hotels);
 		});
 
-		function encode(element,index){
+		function format(element,index){
+			this[index] = element.fields;
 			this[index].recordid = element.recordid.substring(21);
+			this[index].geometry = element.geometry;
 		};
 
 		$scope.goTo = function (id) {

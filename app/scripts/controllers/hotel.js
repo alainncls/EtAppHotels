@@ -4,7 +4,6 @@ angular.module('projetAngularJsApp')
 .controller('HotelCtrl', function ($scope, $http, $routeParams) {
 	var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/';
 	urlJSON += 'search?dataset=hotels-classes-en-france';
-	urlJSON += '&q=recordid:';
 
 	$scope.hotel = [];
 
@@ -13,7 +12,7 @@ angular.module('projetAngularJsApp')
 			latitude: 43.45,
 			longitude: 4.43
 		},
-		zoom: 2,
+		zoom: 10,
 		options: {
 			disableDoubleClickZoom:true,
         	draggableCursor:"move",
@@ -23,7 +22,7 @@ angular.module('projetAngularJsApp')
 		}
 	};
 
-	$http.get(urlJSON+'hotels_classescsvzip%2F' + $routeParams.id).success( function (data) {
+	$http.get(urlJSON+'&q=recordid:hotels_classescsvzip%2F' + $routeParams.id).success( function (data) {
 		$scope.hotel = data.records[0];
 		var l = $scope.hotel.fields.classement.substring(0,1);
 		var e = '';
@@ -32,6 +31,13 @@ angular.module('projetAngularJsApp')
 			e += i + '';
 		}
 		$scope.hotel.fields.classement = e;
+		//centrage de la map
+		$scope.map.center = $scope.hotel.geometry.coordinates;
+		
+		//tentative d'affichage des hotles  sur un rayon de 5km autour de l'hotel principal
+		/*$http.get(urlJSON+'&geofilter.distance='+ $scope.map.center[0]+','+$scope.map.center[1]+',5000' ).success( function (data2) {
+			$scope.hotels = data2.records;
+		});*/
 	});
 
 	$scope.goTo = function (id) {
