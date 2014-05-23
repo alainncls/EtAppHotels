@@ -21,7 +21,7 @@ angular.module('projetAngularJsApp')
 		});
 
 		function encode(element,index){
-			this[index].recordid = encodeURIComponent(element.recordid);
+			this[index].recordid = element.recordid.substring(21);
 		}
 
 		function goTo(id) {
