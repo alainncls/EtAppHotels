@@ -34,7 +34,8 @@ angular
         templateUrl: 'views/findNear.html',
         controller: 'MainCtrl'
       })
-      .otherwise({
-        redirectTo: '/'
-      });
+      // .otherwise({
+      //   redirectTo: '/'
+      // });
+  ;
   });
