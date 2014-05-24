@@ -44,11 +44,13 @@ angular.module('projetAngularJsApp')
 		$scope.stars=[];
 		$scope.nostars=[];
 		for (var i = 1; i <= 5; i++) {
-			if(i<=note)
+			if(i<=note){
 				$scope.stars.push(i);
-			else
+			}
+			else{
 				$scope.nostars.push(i);
+			}
 		}
-		$scope.note = (note==0)?'':note;
+		$scope.note = (note===0)?'':note;
 	};
 });
