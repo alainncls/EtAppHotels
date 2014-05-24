@@ -32,7 +32,7 @@ angular
       })
       .when('/findNear', {
         templateUrl: 'views/findNear.html',
-        controller: 'MainCtrl'
+        controller: 'NearCtrl'
       })
       .otherwise({
         redirectTo: '/'
