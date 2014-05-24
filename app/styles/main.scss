@@ -48,6 +48,10 @@ h1{
     margin-bottom: 10px;
 }
 
+.panel {
+    border-color: $dark-color!important;
+}
+
 .panel-heading,
 .jumbotron,
 .btn {
@@ -55,7 +59,6 @@ h1{
     border-color: $dark-color!important;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .footer {
     padding-left: 15px;
