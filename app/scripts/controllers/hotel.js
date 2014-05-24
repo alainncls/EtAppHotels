@@ -15,10 +15,10 @@ angular.module('projetAngularJsApp')
 		zoom: 10,
 		options: {
 			disableDoubleClickZoom:true,
-        	draggableCursor:"move",
-        	draggingCursor:"auto",
-        	keyboardShortcuts:false,
-        	streetViewControl:false
+			draggableCursor:'move',
+			draggingCursor:'auto',
+			keyboardShortcuts:false,
+			streetViewControl:false
 		}
 	};
 
@@ -27,20 +27,11 @@ angular.module('projetAngularJsApp')
 		var l = $scope.hotel.fields.classement.substring(0,1);
 		var e = '';
 
-		for (var i = 0; i < l; i++) {
+		for (var i = 1; i <= l; i++) {
 			e += i + '';
 		}
 		$scope.hotel.fields.classement = e;
 		//centrage de la map
 		$scope.map.center = $scope.hotel.geometry.coordinates;
-		
-		//tentative d'affichage des hotles  sur un rayon de 5km autour de l'hotel principal
-		/*$http.get(urlJSON+'&geofilter.distance='+ $scope.map.center[0]+','+$scope.map.center[1]+',5000' ).success( function (data2) {
-			$scope.hotels = data2.records;
-		});*/
 	});
-
-	$scope.goTo = function (id) {
-		$location.path('/hotel/' + id);
-	};
 });
