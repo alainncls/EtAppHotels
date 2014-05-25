@@ -37,8 +37,6 @@ angular.module('projetAngularJsApp')
 
                 $scope.map.coords.latitude = position.coords.latitude;
                 $scope.map.coords.longitude = position.coords.longitude;
-
-                //alert($scope.map.center.latitude + ' - ' + $scope.map.center.longitude);
             });
         }, function(error) {
             alert(error);
