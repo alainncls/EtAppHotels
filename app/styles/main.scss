@@ -27,8 +27,14 @@ body {
     padding-bottom: 20px;
 }
 
-h1{
+h1 {
+    margin-left: 1%;
     color:$darker-color;
+}
+
+h2 {
+    color:$dark-color;
+    margin-left: 3%;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -37,11 +43,6 @@ h1{
 .footer {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
 }
 
 .form-search {
@@ -94,4 +95,18 @@ h1{
     a {
         color:$darker-color;
     }
+}
+
+.col-md-12 p {
+    margin-left: 5%;
+}
+
+.tiers {
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.techno {
+    text-align: center;
 }
