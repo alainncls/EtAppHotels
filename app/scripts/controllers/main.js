@@ -31,7 +31,7 @@ angular.module('projetAngularJsApp')
 	
 	function format(element,index){
 		this[index] = element.fields;
-		this[index].recordid = element.recordid.substring(21);
+		this[index].recordid = element.recordid;
 		this[index].geometry = element.geometry;
 		this[index].classement = element.fields.classement.substring(0,1);
 	}
