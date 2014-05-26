@@ -81,17 +81,12 @@ h1{
 
 .header-bottom {
     margin-bottom: 10px;
-    background-color: $main-color;
-    border-radius: 4px;
-}
-
-.boutton-left {
-    margin-right: 10px;
 }
 
 .boutton {
     border-radius: 4px;
     border: 1px solid $dark-color;
+    background-color: $main-color;
 
     :hover {
         background-color: $light-color!important;
