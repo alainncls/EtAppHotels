@@ -18,7 +18,7 @@
 
 <section id="hotel">
 	<div class="row">
-		<div ng-repeat="hotel in hotels | filter:search | filter:{classement:note, nom_commercial:search}"><!-- {nom_commercial:search} -->
+		<div ng-repeat="hotel in hotels | filter:search | filter:{classement:note, nom_commercial:search}">
 			<div class="col-md-4 col-sm-6" >
 				<div class="panel panel-primary">
 					<div class="panel-heading">{{hotel.nom_commercial}}</div>
