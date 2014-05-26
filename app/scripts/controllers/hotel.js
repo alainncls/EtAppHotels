@@ -3,7 +3,7 @@
 angular.module('projetAngularJsApp')
 .controller('HotelCtrl', function ($scope, $http, $routeParams) {
 	var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/';
-	urlJSON += 'search?dataset=hotels-classes-en-france';
+	urlJSON += 'search?dataset=hotels-classes-en-france&q=recordid:';
 
 	$scope.hotel = [];
 
@@ -11,6 +11,10 @@ angular.module('projetAngularJsApp')
 		center: {
 			latitude: 43.45,
 			longitude: 4.43
+		},
+		coords: {
+			latitude: 0,
+			longitude: 0
 		},
 		zoom: 10,
 		options: {
@@ -22,7 +26,7 @@ angular.module('projetAngularJsApp')
 		}
 	};
 
-	$http.get(urlJSON+'&q=recordid:hotels_classescsvzip%2F' + $routeParams.id).success( function (data) {
+	$http.get(urlJSON + $routeParams.id).success( function (data) {
 		$scope.hotel = data.records[0];
 		var l = $scope.hotel.fields.classement.substring(0,1);
 		var e = '';
@@ -33,5 +37,6 @@ angular.module('projetAngularJsApp')
 		$scope.hotel.fields.classement = e;
 		//centrage de la map
 		$scope.map.center = $scope.hotel.geometry.coordinates;
+		$scope.map.coords = $scope.hotel.geometry.coordinates;
 	});
 });
