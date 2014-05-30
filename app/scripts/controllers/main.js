@@ -22,10 +22,8 @@ angular.module('projetAngularJsApp')
 
 	$scope.hotels = [];
 
-	$scope.nostars = [1,2,3,4,5];
-
-	$http.get(urlJSON + '&rows=50&start=0').success( function (data2) {
-		$scope.hotels = data2.records;
+	$http.get(urlJSON + '&rows=50&start=0').success( function (data) {
+		$scope.hotels = data.records;
 		$scope.hotels.forEach( format, $scope.hotels);
 	});
 	
@@ -38,19 +36,5 @@ angular.module('projetAngularJsApp')
 
 	$scope.goTo = function (id) {
 		$location.path('/hotel/' + id);
-	};
-
-	$scope.noter = function (note) {
-		$scope.stars=[];
-		$scope.nostars=[];
-		for (var i = 1; i <= 5; i++) {
-			if(i<=note){
-				$scope.stars.push(i);
-			}
-			else{
-				$scope.nostars.push(i);
-			}
-		}
-		$scope.note = (note===0)?'':note;
 	};
 });
