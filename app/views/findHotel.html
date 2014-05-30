@@ -18,7 +18,7 @@
 
 <section id="hotel">
 	<div class="row">
-		<div ng-repeat="hotel in hotels | filter:search | filter:{classement:note, nom_commercial:search}">
+		<div ng-repeat="hotel in hotels">
 			<div class="col-md-4 col-sm-6" >
 				<div class="panel panel-primary">
 					<div class="panel-heading">{{hotel.nom_commercial}}</div>
@@ -27,6 +27,21 @@
 			</div>
 			<div class="clearfix visible-md visible-lg" ng-if="$index%3==2"></div>
 			<div class="clearfix visible-sm" ng-if="$index%2==1"></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+			<div class="btn-group btn-group-justified">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default" ng-show="prev" ng-click="prev()">&laquo; Previous</button>
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn btn-default">{{(start+results)/results}}</button>
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn btn-default" ng-show="next" ng-click="next()">Next &raquo;</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

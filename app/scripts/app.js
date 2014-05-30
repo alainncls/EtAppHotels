@@ -28,7 +28,7 @@ angular
       })
       .when('/findHotel', {
         templateUrl: 'views/findHotel.html',
-        controller: 'MainCtrl'
+        controller: 'SearchCtrl'
       })
       .when('/findNear', {
         templateUrl: 'views/findNear.html',
