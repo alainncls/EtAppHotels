@@ -13,12 +13,13 @@ angular.module('projetAngularJsApp')
 	$scope.start = 0;
 	refresh();
 	$scope.next = ($scope.hotels.length<$scope.results)?'':true;
-	$scope.prev = ($scope.start==0)?'':true;
+	$scope.prev = ($scope.start===0)?'':true;
 
 	function refresh(){
 		var requete = urlJSON + '&rows='+$scope.results+'&start='+$scope.start;
-		if($scope.stars.length!=0)
+		if($scope.stars.length!==0){
 			requete += '&q=classement:' + $scope.stars.length;
+		}
 		
 		$http.get(requete).success( function (data) {
 			$scope.hotels = data.records;
@@ -29,12 +30,12 @@ angular.module('projetAngularJsApp')
 	$scope.prev = function(){
 		$scope.start-=$scope.results;
 		refresh();
-	}
+	};
 
 	$scope.next = function(){
 		$scope.start+=$scope.results;
 		refresh();
-	}
+	};
 	
 	function format(element,index){
 		this[index] = element.fields;

@@ -2,6 +2,12 @@
 
 <google-map zoom="map.zoom" center="map.center" options="map.options" draggable="true">
 	<marker coords="map.coords"></marker>
+	<marker 
+		ng-repeat="hotel in hotels"
+		coords="hotel.geometry.coordinates"
+		click="goTo(hotel.recordid)"
+	>
+	</marker>
 </google-map>
 
 <ng-include src="'views/footer.html'"></ng-include>
