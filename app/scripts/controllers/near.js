@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('projetAngularJsApp')
-.controller('NearCtrl', function ($scope, $window) {
+.controller('NearCtrl', function ($scope, $window, $http) {
 
 	$scope.map = {
 		center: {
@@ -24,33 +24,42 @@ angular.module('projetAngularJsApp')
 
 	doTest1();
 
-    $scope.supportsGeo = $window.navigator;
-    $scope.position = null;
+	$scope.position = null;
 
-    function doTest1 () {
-        window.navigator.geolocation.getCurrentPosition(function(position) {
-            $scope.$apply(function() {
-                $scope.position = position;
+	function format(element,index){
+		this[index] = element.fields;
+		this[index].recordid = element.recordid;
+		this[index].geometry = element.geometry;
+		this[index].classement = element.fields.classement.substring(0,1);
+	}
 
-                $scope.map.center.latitude = position.coords.latitude;
-                $scope.map.center.longitude = position.coords.longitude;
+	function doTest1 () {
+		window.navigator.geolocation.getCurrentPosition(function(position) {
+			$scope.$apply(function() {
+				$scope.position = position;
 
-                $scope.map.coords.latitude = position.coords.latitude;
-                $scope.map.coords.longitude = position.coords.longitude;
-            });
-        }, function(error) {
-            alert(error);
-        });
-    };
+				$scope.map.center.latitude = position.coords.latitude;
+				$scope.map.center.longitude = position.coords.longitude;
 
-    $scope.doTest2 = function() {
-        $window.navigator.geolocation.getCurrentPosition(function(position) {
-            $scope.$apply(function() {
-                $scope.position = position;
-                $scope.map.center = position;
-            });
-        }, function(error) {
-            alert(error);
-        });
-    };
+				$scope.map.coords.latitude = position.coords.latitude;
+				$scope.map.coords.longitude = position.coords.longitude;
+
+				var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/search?';
+				urlJSON += 'dataset=hotels-classes-en-france';
+				var requete = urlJSON + '&geofilter.distance='+$scope.map.coords.latitude+','+$scope.map.coords.longitude+',10000';
+				alert(requete);
+				$http.get(requete).success( function (data) {
+					$scope.hotels = data.records;
+					$scope.hotels.forEach( format, $scope.hotels);
+				});
+				
+			});
+		}, function(error) {
+			alert(error);
+		});
+	}
+
+	$scope.goTo = function (id) {
+		$location.path('/hotel/' + id);
+	};
 });
