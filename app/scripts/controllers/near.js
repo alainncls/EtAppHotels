@@ -47,7 +47,6 @@ angular.module('projetAngularJsApp')
 				var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/search?';
 				urlJSON += 'dataset=hotels-classes-en-france';
 				var requete = urlJSON + '&geofilter.distance='+$scope.map.coords.latitude+','+$scope.map.coords.longitude+',10000';
-				alert(requete);
 				$http.get(requete).success( function (data) {
 					$scope.hotels = data.records;
 					$scope.hotels.forEach( format, $scope.hotels);
