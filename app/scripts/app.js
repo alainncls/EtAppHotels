@@ -18,8 +18,8 @@ angular
         templateUrl: 'views/about.html',
         controller: 'MainCtrl'
       })
-      .when('/cgv', {
-        templateUrl: 'views/cgv.html',
+      .when('/cgu', {
+        templateUrl: 'views/cgu.html',
         controller: 'MainCtrl'
       })
       .when('/hotel/:id', {
