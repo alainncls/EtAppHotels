@@ -2,14 +2,11 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 
+@import "models/colors";
+
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
-
-$light-color: #BCDAAD;
-$main-color: #91C179;
-$dark-color: #53833D;
-$darker-color: #375728;
 
 .angular-google-map-container { height: 400px; }
 
@@ -44,11 +41,13 @@ h2 {
     border-color: $dark-color!important;
 }
 
-.panel-heading,
-.jumbotron,
 .btn {
-    background-color: $main-color!important;
     border-color: $dark-color!important;
+    background-color: $main-color!important;
+}
+
+.panel-heading {
+    background-color: $main-color!important;
 }
 
 .footer {
@@ -65,8 +64,9 @@ h2 {
 }
 
 .jumbotron {
+    background-color: $main-color!important;
     text-align: center;
-    border-bottom: 1px solid $dark-color;
+    border: 1px solid $dark-color;
     border-radius: 4px!important;
     padding: 10px;
     margin-bottom: 10px;
@@ -82,9 +82,8 @@ h2 {
     }
 
     a {
-        padding: 0px!important;
         color:$darker-color;
-        margin-bottom: 0px!important;
+        margin: 0px!important;
     }
 }
 
@@ -96,6 +95,12 @@ h2 {
     max-width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.error {
+    max-width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .techno {

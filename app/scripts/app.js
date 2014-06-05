@@ -35,6 +35,7 @@ angular
         controller: 'NearCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        templateUrl: 'views/404.html',
+        controller: 'MainCtrl'
       });
   });
