@@ -16,7 +16,7 @@ angular.module('projetAngularJsApp')
 			latitude: 0,
 			longitude: 0
 		},
-		zoom: 10,
+		zoom: 16,
 		options: {
 			disableDoubleClickZoom:true,
 			draggableCursor:'move',

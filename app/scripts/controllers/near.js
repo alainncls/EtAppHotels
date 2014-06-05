@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('projetAngularJsApp')
-.controller('NearCtrl', function ($scope, $window, $http) {
+.controller('NearCtrl', function ($scope, $window, $http, $location) {
 
 	$scope.map = {
 		center: {
@@ -12,7 +12,7 @@ angular.module('projetAngularJsApp')
 			latitude: 0,
 			longitude: 0
 		},
-		zoom: 16,
+		zoom: 14,
 		options: {
 			disableDoubleClickZoom:true,
 			draggableCursor:'move',
@@ -21,6 +21,8 @@ angular.module('projetAngularJsApp')
 			streetViewControl:false
 		}
 	};
+
+	$scope.dist = '1000'
 
 	doTest1();
 
@@ -34,7 +36,7 @@ angular.module('projetAngularJsApp')
 	}
 
 	function doTest1 () {
-		window.navigator.geolocation.getCurrentPosition(function(position) {
+		$window.navigator.geolocation.getCurrentPosition(function(position) {
 			$scope.$apply(function() {
 				$scope.position = position;
 
@@ -46,7 +48,7 @@ angular.module('projetAngularJsApp')
 
 				var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/search?';
 				urlJSON += 'dataset=hotels-classes-en-france';
-				var requete = urlJSON + '&geofilter.distance='+$scope.map.coords.latitude+','+$scope.map.coords.longitude+',10000';
+				var requete = urlJSON + '&geofilter.distance='+$scope.map.coords.latitude+','+$scope.map.coords.longitude+','+$scope.dist;
 				$http.get(requete).success( function (data) {
 					$scope.hotels = data.records;
 					$scope.hotels.forEach( format, $scope.hotels);
