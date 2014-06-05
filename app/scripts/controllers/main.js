@@ -22,7 +22,7 @@ angular.module('projetAngularJsApp')
 
 	$scope.hotels = [];
 
-	$http.get(urlJSON + '&rows=50&start=0').success( function (data) {
+	$http.get(urlJSON + '&rows=1&start=0').success( function (data) {
 		$scope.hotels = data.records;
 		$scope.hotels.forEach( format, $scope.hotels);
 	});
