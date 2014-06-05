@@ -20,7 +20,6 @@ $darker-color: #375728;
     padding: 0.2em 0;
 }
 
-/* Space out content a bit */
 body {
     background-color: $light-color;
     padding-top: 20px;
@@ -35,14 +34,6 @@ h1 {
 h2 {
     color:$dark-color;
     margin-left: 3%;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
 }
 
 .form-search {
@@ -60,21 +51,17 @@ h2 {
     border-color: $dark-color!important;
 }
 
-.header,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
 .footer {
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
+    margin-top: 19px;
 }
 
 .header {
     padding-bottom: 19px;
     border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 19px;
 }
 
 .jumbotron {
@@ -82,10 +69,6 @@ h2 {
     border-bottom: 1px solid $dark-color;
     border-radius: 4px!important;
     padding: 10px;
-    margin-bottom: 10px;
-}
-
-.header-bottom {
     margin-bottom: 10px;
 }
 
@@ -97,8 +80,11 @@ h2 {
     :hover {
         background-color: $light-color!important;
     }
+
     a {
+        padding: 0px!important;
         color:$darker-color;
+        margin-bottom: 0px!important;
     }
 }
 
