@@ -22,7 +22,9 @@ angular.module('projetAngularJsApp')
 		}
 	};
 
-	$scope.dist = '1000'
+	$scope.dist = '1000';
+
+	$scope.width = document.getElementById('gmap').offsetWidth;
 
 	doTest1();
 
