@@ -1,7 +1,7 @@
 <ng-include src="'views/header.html'"></ng-include>
 
 <input type="number" min="0" ng-model="dist" onchange="doTest1()" />
-<google-map zoom="map.zoom" center="map.center" options="map.options" draggable="true">
+<google-map id="gmap" zoom="map.zoom" center="map.center" options="map.options" draggable="true">
 	<marker coords="map.coords"></marker>
 	<marker 
 		ng-repeat="hotel in hotels"
@@ -15,6 +15,7 @@
 	>
 	</circle>
 </google-map>
+
 <hotels-display hotels="hotels"></hotels-display>
 
 <ng-include src="'views/footer.html'"></ng-include>
