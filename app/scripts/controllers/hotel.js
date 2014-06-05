@@ -28,6 +28,9 @@ angular.module('projetAngularJsApp')
 
 	$http.get(urlJSON + $routeParams.id).success( function (data) {
 		$scope.hotel = data.records[0];
+
+		
+
 		var l = $scope.hotel.fields.classement.substring(0,1);
 		var e = '';
 
