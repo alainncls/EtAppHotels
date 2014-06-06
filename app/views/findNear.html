@@ -2,7 +2,9 @@
 
 <input type="number" min="0" ng-model="dist" onchange="doTest1()" />
 <google-map id="gmap" zoom="map.zoom" center="map.center" options="map.options" draggable="true">
-	<marker coords="map.coords"></marker>
+	<marker coords="map.coords"
+			clickable='false'
+	></marker>
 	<marker 
 		ng-repeat="hotel in hotels"
 		coords="hotel.geometry.coordinates"
