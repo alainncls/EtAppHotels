@@ -12,4 +12,10 @@ angular.module('projetAngularJsApp')
 			restrict: 'AEC',
 			templateUrl:'views/parts/hotels.html'
 		};
+	})
+	.directive('hotelsPaginationDisplay', function (){
+		return {
+			restrict: 'AEC',
+			templateUrl:'views/parts/hotelsPagination.html'
+		};
 	});

@@ -1,41 +1,44 @@
 'use strict';
 
 angular.module('projetAngularJsApp')
-.controller('SearchCtrl', function ($scope, $http, $location) {
+.controller('SearchCtrl', function ($scope, $http, $location, $filter) {
 	var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/search?';
 	urlJSON += 'dataset=hotels-classes-en-france';
+
+	$scope.currentPage = 0;
+	$scope.pageSize = 12;
+	$scope.numberOfPages=function(){
+		return Math.ceil($scope.filtered.length/$scope.pageSize);
+	};
 
 	$scope.hotels = [];
 	$scope.stars=[];
 	$scope.nostars = [1,2,3,4,5];
 
-	$scope.results = 12;
-	$scope.start = 0;
-	refresh();
-	$scope.next = ($scope.hotels.length<$scope.results)?'':true;
-	$scope.prev = ($scope.start===0)?'':true;
+	$http.get(urlJSON+"&rows=0").success( function (data) {
+		console.log(data);
+		$scope.nbHotel = data.nhits;
+		//Limitation du nb de résultats pour fluidité
+		$scope.nbHotel=1000;
+		refresh();
+	});
+
+	
 
 	function refresh(){
-		var requete = urlJSON + '&rows='+$scope.results+'&start='+$scope.start;
-		if($scope.stars.length!==0){
-			requete += '&q=classement:' + $scope.stars.length;
-		}
-		
-		$http.get(requete).success( function (data) {
-			$scope.hotels = data.records;
-			$scope.hotels.forEach( format, $scope.hotels);
-		});
+		$scope.hotels=[];
+		var step = 50;
+		var requete = urlJSON;
+		for (var i = 0; i < $scope.nbHotel; i+=step) {
+			requete = urlJSON + '&rows='+step+'&start='+i;
+
+			$http.get(requete).success( function (data) {
+				console.log(data);
+				data.records.forEach( format, data.records);
+				$scope.hotels = $scope.hotels.concat(data.records);
+			});
+		};
 	}
-
-	$scope.prev = function(){
-		$scope.start-=$scope.results;
-		refresh();
-	};
-
-	$scope.next = function(){
-		$scope.start+=$scope.results;
-		refresh();
-	};
 	
 	function format(element,index){
 		this[index] = element.fields;
@@ -60,6 +63,11 @@ angular.module('projetAngularJsApp')
 			}
 		}
 		$scope.note = (note===0)?'':note;
-		refresh();
+	};
+
+}).filter('startFrom', function() {
+	return function(input, start) {
+		start = +start; //parse to int
+		return input.slice(start);
 	};
 });
