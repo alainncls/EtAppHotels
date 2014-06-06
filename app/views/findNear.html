@@ -1,6 +1,6 @@
 <ng-include src="'views/header.html'"></ng-include>
 
-<input type="number" min="0" ng-model="dist" onchange="doTest1()" />
+<input type="number" min="0" ng-model="dist" onchange="around()" />
 <google-map id="gmap" zoom="map.zoom" center="map.center" options="map.options" draggable="true">
 	<marker coords="map.coords"
 			clickable='false'

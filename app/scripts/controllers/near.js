@@ -24,42 +24,42 @@ angular.module('projetAngularJsApp')
 
 	$scope.dist = '1000';
 
+	//$('#gmap').append("<circle center='{44.78, 2}' radius='10000' clickable='false'></circle>");
+
 	$scope.width = document.getElementById('gmap').offsetWidth;
 
-	doTest1();
+	/*Geolocalisation*/
+	$window.navigator.geolocation.getCurrentPosition(function(position) {
+		$scope.$apply(function() {
+			$scope.position = position;
 
-	$scope.position = null;
+			$scope.map.center.latitude = position.coords.latitude;
+			$scope.map.center.longitude = position.coords.longitude;
+
+			$scope.map.coords.latitude = position.coords.latitude;
+			$scope.map.coords.longitude = position.coords.longitude;
+
+			$scope.around();
+		});
+	}, function(error) {
+		alert(error);
+	});
+
+	$scope.around = function () {
+		var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/search?';
+		urlJSON += 'dataset=hotels-classes-en-france';
+		var requete = urlJSON + '&geofilter.distance='+$scope.map.coords.latitude+','+$scope.map.coords.longitude+','+$scope.dist;
+		$http.get(requete).success( function (data) {
+			$scope.hotels = data.records;
+			$scope.hotels.forEach( format, $scope.hotels);
+		});
+	};
 
 	function format(element,index){
 		this[index] = element.fields;
 		this[index].recordid = element.recordid;
 		this[index].geometry = element.geometry;
 		this[index].classement = element.fields.classement.substring(0,1);
-	}
-
-	function doTest1 () {
-		$window.navigator.geolocation.getCurrentPosition(function(position) {
-			$scope.$apply(function() {
-				$scope.position = position;
-
-				$scope.map.center.latitude = position.coords.latitude;
-				$scope.map.center.longitude = position.coords.longitude;
-
-				$scope.map.coords.latitude = position.coords.latitude;
-				$scope.map.coords.longitude = position.coords.longitude;
-
-				var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/search?';
-				urlJSON += 'dataset=hotels-classes-en-france';
-				var requete = urlJSON + '&geofilter.distance='+$scope.map.coords.latitude+','+$scope.map.coords.longitude+','+$scope.dist;
-				$http.get(requete).success( function (data) {
-					$scope.hotels = data.records;
-					$scope.hotels.forEach( format, $scope.hotels);
-				});
-				
-			});
-		}, function(error) {
-			alert(error);
-		});
 	}
 
 	$scope.goTo = function (id) {
