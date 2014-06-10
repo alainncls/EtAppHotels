@@ -8,7 +8,7 @@
 	</div>
 </div>
 
-<div ng-controller="MyCtrl">
+<!-- <div ng-controller="MyCtrl">
     <ul>
         <li ng-repeat="item in data | startFrom:currentPage*pageSize | limitTo:pageSize">
             {{item}}
@@ -21,4 +21,8 @@
     <button ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
         Next
     </button>
-</div>
+</div> -->
+
+<section id="hotel">
+    <hotels-pagination-display hotels="hotels"></hotels-pagination-display>
+</section>

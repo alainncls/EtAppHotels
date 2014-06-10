@@ -1,21 +1,13 @@
 <ng-include src="'views/header.html'"></ng-include>
 
-<input type="number" min="0" ng-model="dist" onchange="around()" />
+<input type="number" min="0" ng-model="dist" onchange="around()"/>
+
 <google-map id="gmap" zoom="map.zoom" center="map.center" options="map.options" draggable="true">
-	<marker coords="map.coords"
-			clickable='false'
-	></marker>
-	<marker 
-		ng-repeat="hotel in hotels"
-		coords="hotel.geometry.coordinates"
-		click="goTo(hotel.recordid)"
-	>
-	</marker>
-	<circle center='map.coords'
-			radius='1000'
-			clickable='false'
-	>
-	</circle>
+	<marker coords="marker.coords" options="marker.options"></marker>
+
+	<marker ng-repeat="hotel in hotels" coords="hotel.geometry.coordinates" click="goTo(hotel.recordid)"></marker>
+
+	<circle center='marker.coords' radius='1000' clickable='false'></circle>
 </google-map>
 
 <hotels-display hotels="hotels"></hotels-display>

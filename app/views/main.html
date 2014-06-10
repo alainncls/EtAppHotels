@@ -4,7 +4,6 @@
 <!-- click="goTo(hotel.recordid)" -->
 
 <br/>
-<br/>
 
 <section id="form">
 	<form>
@@ -12,15 +11,14 @@
 			<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 			<input class="form-control" ng-model="search" placeholder="Filter">
 		</div>
-		<!-- <input class="btn btn-primary" type="submit"> -->
 	</form>
 </section>
+
 <google-map zoom="map.zoom" center="map.center" options="map.options" draggable="true">
 	<marker 
 		ng-repeat="hotel in hotels | filter:search"
 		coords="hotel.geometry.coordinates"
-		click="goTo(hotel.recordid)"
-	>
+		click="goTo(hotel.recordid)">
 	</marker>
 </google-map>
 
