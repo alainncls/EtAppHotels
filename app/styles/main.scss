@@ -33,6 +33,11 @@ h2 {
     margin-left: 3%;
 }
 
+h4 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
 .form-search {
     margin-bottom: 10px;
 }
@@ -50,17 +55,32 @@ h2 {
     background-color: $main-color!important;
 }
 
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
-    margin-top: 19px;
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 19px;
+    margin-bottom: 19px;
+    .bottom {
+        margin-top: 19px;
+    }
 }
 
-.header {
-    padding-bottom: 19px;
-    border-bottom: 1px solid #e5e5e5;
+.carousel {
     margin-bottom: 19px;
+}
+
+.f-filter {
+    margin-top: 19px!important;
+    margin-bottom: 19px!important;
+}
+
+.map {
+    margin-top: 0!important;
+    margin-bottom: 19px!important;
+}
+
+.footer {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 19px;
 }
 
 .jumbotron {
@@ -105,4 +125,5 @@ h2 {
 
 .techno {
     text-align: center;
+    margin-top: 19px;
 }

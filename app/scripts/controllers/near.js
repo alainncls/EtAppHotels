@@ -36,13 +36,7 @@ angular.module('projetAngularJsApp')
 			clickable:false,
 			cursor:'move',
 			icon: {
-				url: 'http://wiki.april.org/images/9/9e/Etoile.svg',
-				//path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
-			    fillColor: 'yellow',
-			    fillOpacity: 0.8,
-			    scale: 0.1,
-			    strokeColor: 'gold',
-			    strokeWeight: 0.1
+				url: 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/32/Map-Marker-Marker-Outside-Azure-icon.png'
 			}
 		}
 	};
@@ -52,7 +46,7 @@ angular.module('projetAngularJsApp')
 		radius: $scope.distance,
 		fill: {
 			color: 'blue',
-			opacity: 0.2
+			opacity: 0.3
 		},
 		stroke: {
 			color: 'blue',
@@ -86,7 +80,7 @@ angular.module('projetAngularJsApp')
 		$scope.circle[0].radius = $scope.distance;
 		var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/search?';
 		urlJSON += 'dataset=hotels-classes-en-france';
-		var requete = urlJSON + '&rows=30&geofilter.distance=' + $scope.marker.coords.latitude + ',' + $scope.marker.coords.longitude + ',' + $scope.distance;
+		var requete = urlJSON + '&rows=60&geofilter.distance=' + $scope.marker.coords.latitude + ',' + $scope.marker.coords.longitude + ',' + $scope.distance;
 		$http.get(requete).success( function (data) {
 			$scope.hotels = data.records;
 			$scope.hotels.forEach( format, $scope.hotels);
