@@ -7,10 +7,10 @@ angular.module('projetAngularJsApp')
 
 	$scope.map = {
 		center: {
-			latitude: 20,
-			longitude: 0
+			latitude: 47,
+			longitude: 2
 		},
-		zoom: 2,
+		zoom: 5,
 		options: {
 			disableDoubleClickZoom:true,
 			draggableCursor:'move',
@@ -22,7 +22,7 @@ angular.module('projetAngularJsApp')
 
 	$scope.hotels = [];
 
-	$http.get(urlJSON + '&rows=1&start=0').success( function (data) {
+	$http.get(urlJSON + '&rows=100&start=0').success( function (data) {
 		$scope.hotels = data.records;
 		$scope.hotels.forEach( format, $scope.hotels);
 	});

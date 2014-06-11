@@ -16,7 +16,6 @@ angular.module('projetAngularJsApp')
 	$scope.nostars = [1,2,3,4,5];
 
 	$http.get(urlJSON + '&rows=0').success( function (data) {
-		console.log(data);
 		$scope.nbHotel = data.nhits;
 		//Limitation du nb de résultats pour fluidité
 		$scope.nbHotel=500;
@@ -34,7 +33,6 @@ angular.module('projetAngularJsApp')
 
 			// Il faudrait faire une focntion avec ce bloc
 			$http.get(requete).success( function (data) {
-				console.log(data);
 				data.records.forEach( format, data.records);
 				$scope.hotels = $scope.hotels.concat(data.records);
 			});
@@ -63,7 +61,7 @@ angular.module('projetAngularJsApp')
 				$scope.nostars.push(i);
 			}
 		}
-		$scope.note = (note===0)?'':note;
+		$scope.note = (note===0)?'0':note;
 	};
 
 }).filter('startFrom', function() {
