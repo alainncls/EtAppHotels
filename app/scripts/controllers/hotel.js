@@ -26,6 +26,25 @@ angular.module('projetAngularJsApp')
 		}
 	};
 
+	$scope.marker = {
+		coords: {
+			latitude: 0,
+			longitude: 0
+		},
+		options: {
+			clickable:false,
+			cursor:'move',
+			icon: {
+				url: 'http://wiki.april.org/images/9/9e/Etoile.svg',
+			    fillColor: 'yellow',
+			    fillOpacity: 0.8,
+			    scale: 0.1,
+			    strokeColor: 'gold',
+			    strokeWeight: 0.1
+			}
+		}
+	};
+
 	$http.get(urlJSON + $routeParams.id).success( function (data) {
 		$scope.hotel = data.records[0];
 
