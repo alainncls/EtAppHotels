@@ -19,7 +19,7 @@
 
 	<marker ng-repeat="hotel in hotels" coords="hotel.geometry.coordinates" click="goTo(hotel.recordid)"></marker>
 
-	<circle ng-repeat="c in circle" center='marker.coords' radius='c.radius' clickable='false'></circle>
+	<!-- <circle ng-repeat="c in circle" center='marker.coords' radius='c.radius' clickable='false'></circle> -->
 </google-map>
 
 <hotels-display hotels="hotels"></hotels-display>
