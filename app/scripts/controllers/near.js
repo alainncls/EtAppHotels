@@ -2,12 +2,14 @@
 
 angular.module('projetAngularJsApp')
 .controller('NearCtrl', function ($scope, $window, $http, $location) {
-	$scope.distance = '1000';
+	$scope.distance = 1000;
 
 	$scope.dist = [
-		{name: '500 m', val: '500'},
-		{name: '1 km', val: '1000'},
-		{name: '2 km', val: '2000'}
+		{name: '500 m', val: 500},
+		{name: '1 km', val: 1000},
+		{name: '2 km', val: 2000},
+		{name: '5 km', val: 5000},
+		{name: '10 km', val: 10000}
 	];
 
 	$scope.map = {
@@ -34,7 +36,8 @@ angular.module('projetAngularJsApp')
 			clickable:false,
 			cursor:'move',
 			icon: {
-				path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
+				url: 'http://wiki.april.org/images/9/9e/Etoile.svg',
+				//path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
 			    fillColor: 'yellow',
 			    fillOpacity: 0.8,
 			    scale: 0.1,
@@ -44,10 +47,19 @@ angular.module('projetAngularJsApp')
 		}
 	};
 
-	$scope.circle = {
+	$scope.circle = [{
 		//center: marker.coords,
-		radius: $scope.distance
-	};
+		radius: $scope.distance,
+		fill: {
+			color: 'blue',
+			opacity: 0.2
+		},
+		stroke: {
+			color: 'blue',
+			weight: 1,
+			opacity: 1
+		}
+	}];
 
 	//$('#gmap').append("<circle center='{44.78, 2}' radius='10000' clickable='false'></circle>");
 
@@ -71,9 +83,10 @@ angular.module('projetAngularJsApp')
 	});
 
 	$scope.around = function () {
+		$scope.circle[0].radius = $scope.distance;
 		var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/search?';
 		urlJSON += 'dataset=hotels-classes-en-france';
-		var requete = urlJSON + '&geofilter.distance=' + $scope.marker.coords.latitude + ',' + $scope.marker.coords.longitude + ',' + $scope.distance;
+		var requete = urlJSON + '&rows=30&geofilter.distance=' + $scope.marker.coords.latitude + ',' + $scope.marker.coords.longitude + ',' + $scope.distance;
 		$http.get(requete).success( function (data) {
 			$scope.hotels = data.records;
 			$scope.hotels.forEach( format, $scope.hotels);
