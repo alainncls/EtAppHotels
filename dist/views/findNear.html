@@ -1,5 +1,0 @@
-<ng-include src="'views/header.html'"></ng-include><div class="row"><div class="col-md-12"><select class="form-control" ng-model="distance" ng-change="around()" ng-options="d.val as d.name for d in dist"><!--			<option selected="selected" value="500">500 m</option>
- 			<option value=1000>1 km</option>
-			<option value=2000>2 km</option>
-			<option value=5000>5 km</option>
-			<option value=10000>10 km</option> --></select></div></div><!-- <input type="number" min="0" ng-model="dist" onchange="around()"/> --><google-map id="gmap" zoom="map.zoom" center="map.center" options="map.options" draggable="true"><marker coords="marker.coords" options="marker.options"></marker><marker ng-repeat="hotel in hotels" coords="hotel.geometry.coordinates" click="goTo(hotel.recordid)"></marker><circle ng-repeat="c in circle" center="marker.coords" radius="c.radius" fill="c.fill" stroke="c.stroke" clickable="false"></circle></google-map><hotels-display hotels="hotels"></hotels-display><ng-include src="'views/footer.html'"></ng-include>
