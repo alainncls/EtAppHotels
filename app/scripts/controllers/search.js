@@ -71,4 +71,19 @@ angular.module('projetAngularJsApp')
 		start = +start; //parse to int
 		return input.slice(start);
 	};
+}).filter('filterStar', function() {
+	return function(input, nbStar) {
+		if(nbStar===0){
+			return input;
+		}
+		else{
+			var tempInput=[];
+			angular.forEach(input, function(value, key) {
+				if(value.classement==nbStar){
+					this.push(value);
+				}
+			}, tempInput);
+			return tempInput;
+		}
+	};
 });
