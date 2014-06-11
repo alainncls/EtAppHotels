@@ -2,6 +2,13 @@
 
 angular.module('projetAngularJsApp')
 .controller('NearCtrl', function ($scope, $window, $http, $location) {
+	$scope.distance = '1000';
+
+	$scope.dist = [
+		{name: '500 m', val: '500'},
+		{name: '1 km', val: '1000'},
+		{name: '2 km', val: '2000'}
+	];
 
 	$scope.map = {
 		center: {
@@ -37,7 +44,10 @@ angular.module('projetAngularJsApp')
 		}
 	};
 
-	$scope.dist = '1000';
+	$scope.circle = {
+		//center: marker.coords,
+		radius: $scope.distance
+	};
 
 	//$('#gmap').append("<circle center='{44.78, 2}' radius='10000' clickable='false'></circle>");
 
@@ -63,7 +73,7 @@ angular.module('projetAngularJsApp')
 	$scope.around = function () {
 		var urlJSON = 'http://public.opendatasoft.com/api/records/1.0/search?';
 		urlJSON += 'dataset=hotels-classes-en-france';
-		var requete = urlJSON + '&geofilter.distance=' + $scope.marker.coords.latitude + ',' + $scope.marker.coords.longitude + ',' + $scope.dist;
+		var requete = urlJSON + '&geofilter.distance=' + $scope.marker.coords.latitude + ',' + $scope.marker.coords.longitude + ',' + $scope.distance;
 		$http.get(requete).success( function (data) {
 			$scope.hotels = data.records;
 			$scope.hotels.forEach( format, $scope.hotels);
