@@ -55,8 +55,6 @@ angular.module('projetAngularJsApp')
 		}
 	}];
 
-	//$('#gmap').append("<circle center='{44.78, 2}' radius='10000' clickable='false'></circle>");
-
 	$scope.width = document.getElementById('gmap').offsetWidth;
 
 	/*Geolocalisation*/
