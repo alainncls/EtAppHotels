@@ -3,16 +3,9 @@
 <div class="row">
 	<div class="col-md-12" >
 		<select class="form-control" ng-model="distance" ng-change="around()" ng-options="d.val as d.name for d in dist">
-<!--			<option selected="selected" value="500">500 m</option>
- 			<option value=1000>1 km</option>
-			<option value=2000>2 km</option>
-			<option value=5000>5 km</option>
-			<option value=10000>10 km</option> -->
 		</select>
 	</div>
 </div>
-
-<!-- <input type="number" min="0" ng-model="dist" onchange="around()"/> -->
 
 <google-map id="gmap" zoom="map.zoom" center="map.center" options="map.options" draggable="true">
 	<marker coords="marker.coords" options="marker.options"></marker>
