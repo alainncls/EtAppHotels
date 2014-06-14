@@ -83,6 +83,24 @@ angular.module('projetAngularJsApp')
 			$scope.hotels = data.records;
 			$scope.hotels.forEach( format, $scope.hotels);
 		});
+		switch($scope.distance){
+			case 500:
+				$scope.map.zoom = 15;
+				break;
+			case 2000:
+				$scope.map.zoom = 13;
+				break;
+			case 5000:
+				$scope.map.zoom = 12;
+				break;
+			case 10000:
+				$scope.map.zoom = 11;
+				break;
+			default:
+				$scope.map.zoom = 14;
+				break;
+		}
+		
 	};
 
 	function format(element,index){

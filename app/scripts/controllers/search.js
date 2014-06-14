@@ -30,13 +30,15 @@ angular.module('projetAngularJsApp')
 		var requete = urlJSON;
 		for (var i = 0; i < $scope.nbHotel; i+=step) {
 			requete = urlJSON + '&rows='+step+'&start='+i;
-
-			// Il faudrait faire une focntion avec ce bloc
-			$http.get(requete).success( function (data) {
-				data.records.forEach( format, data.records);
-				$scope.hotels = $scope.hotels.concat(data.records);
-			});
+			get(requete);
 		}
+	}
+
+	function get(requete){
+		$http.get(requete).success( function (data) {
+			data.records.forEach( format, data.records);
+			$scope.hotels = $scope.hotels.concat(data.records);
+		});
 	}
 	
 	function format(element,index){
@@ -76,7 +78,7 @@ angular.module('projetAngularJsApp')
 		}
 		else{
 			var tempInput=[];
-			angular.forEach(input, function(value, key) {
+			angular.forEach(input, function(value) {
 				if(value.classement==nbStar){
 					this.push(value);
 				}
