@@ -6,15 +6,21 @@
 		</select>
 	</div>
 </div>
-
-<google-map id="gmap" zoom="map.zoom" center="map.center" options="map.options" draggable="true">
-	<marker coords="marker.coords" options="marker.options"></marker>
-
-	<marker ng-repeat="hotel in hotels" coords="hotel.geometry.coordinates" click="goTo(hotel.recordid)"></marker>
-
-	<circle ng-repeat="c in circle" center='marker.coords' radius='c.radius' fill="c.fill" stroke='c.stroke' clickable='false'></circle>
-</google-map>
-
-<hotels-display hotels="hotels"></hotels-display>
+<div class="row">
+	<div class="col-md-12" >
+		<google-map class="map" zoom="map.zoom" center="map.center" options="map.options" draggable="true">
+			<marker coords="marker.coords" options="marker.options"></marker>
+			<marker ng-repeat="hotel in hotels" coords="hotel.geometry.coordinates" click="goTo(hotel.recordid)"></marker>
+			<circle ng-repeat="c in circle" center='marker.coords' radius='c.radius' fill="c.fill" stroke='c.stroke' clickable='false'></circle>
+		</google-map>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="near-list">
+			<hotels-display hotels="hotels"></hotels-display>
+		</div>
+	</div>
+</div>
 
 <ng-include src="'views/footer.html'"></ng-include>
