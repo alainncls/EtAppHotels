@@ -55,8 +55,6 @@ angular.module('projetAngularJsApp')
 		}
 	}];
 
-	$scope.width = document.getElementById('gmap').offsetWidth;
-
 	/*Geolocalisation*/
 	$window.navigator.geolocation.getCurrentPosition(function(position) {
 		$scope.$apply(function() {

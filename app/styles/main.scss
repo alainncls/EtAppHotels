@@ -3,6 +3,7 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 
 @import "models/colors";
+@import "models/mixins";
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
@@ -11,119 +12,119 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 .angular-google-map-container { height: 400px; }
 
 .browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
 }
 
 body {
-    background-color: $light-color;
-    padding-top: 20px;
-    padding-bottom: 20px;
+	background-color: $light-color;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 h1 {
-    margin-left: 1%;
-    color:$darker-color;
+	margin-left: 1%;
+	color:$darker-color;
 }
 
 h2 {
-    color:$dark-color;
-    margin-left: 3%;
+	color:$dark-color;
+	margin-left: 3%;
 }
 
 h4 {
-    margin-top: 0;
-    padding-top: 0;
+	margin-top: 0;
+	padding-top: 0;
 }
 
 .form-search {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .panel {
-    border-color: $dark-color!important;
+	border-color: $dark-color!important;
 }
 
 .btn {
-    border-color: $dark-color!important;
-    background-color: $main-color!important;
+	border-color: $dark-color!important;
+	background-color: $main-color!important;
 }
 
 .panel-heading {
-    background-color: $main-color!important;
+	background-color: $main-color!important;
 }
 
 .header {
-    border-bottom: 1px solid #e5e5e5;
-    padding-bottom: 19px;
-    margin-bottom: 19px;
-    .bottom {
-        margin-top: 19px;
-    }
-}
-
-.carousel {
-    margin-bottom: 19px;
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 19px;
+	margin-bottom: 19px;
+	.bottom {
+		margin-top: 19px;
+	}
 }
 
 .f-filter {
-    margin-top: 19px!important;
-    margin-bottom: 19px!important;
+	margin-top: 19px!important;
+	margin-bottom: 19px!important;
+	@include limit-top();
 }
 
 .map {
-    margin-top: 0!important;
-    margin-bottom: 19px!important;
+	margin-top: 19!important;
+	margin-bottom: 19px!important;
 }
 
 .footer {
-    border-top: 1px solid #e5e5e5;
-    margin-top: 19px;
+	@include limit-top();
 }
 
 .jumbotron {
-    background-color: $main-color!important;
-    text-align: center;
-    border: 1px solid $dark-color;
-    border-radius: 4px!important;
-    padding: 10px;
-    margin-bottom: 10px;
+	background-color: $main-color!important;
+	text-align: center;
+	border: 1px solid $dark-color;
+	border-radius: 4px!important;
+	padding: 10px;
+	margin-bottom: 10px;
 }
 
 .boutton {
-    border-radius: 4px;
-    border: 1px solid $dark-color;
-    background-color: $main-color;
+	border-radius: 4px;
+	border: 1px solid $dark-color;
+	background-color: $main-color;
 
-    :hover {
-        background-color: $light-color!important;
-    }
+	:hover {
+		background-color: $light-color!important;
+	}
 
-    a {
-        color:$darker-color;
-        margin: 0px!important;
-    }
+	a {
+		color:$darker-color;
+		margin: 0px!important;
+	}
 }
 
 .col-md-12 p {
-    margin-left: 5%;
+	margin-left: 5%;
 }
 
 .tiers {
-    max-width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+	max-width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 .error {
-    max-width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+	max-width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .techno {
-    text-align: center;
-    margin-top: 19px;
+	text-align: center;
+	margin-top: 19px;
+}
+
+.near-list {
+	@include limit-top();
 }
